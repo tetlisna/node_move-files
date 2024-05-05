@@ -1,8 +1,10 @@
-// write code here
+/* eslint-disable no-console */
+
 const fs = require('node:fs');
 const path = require('path');
 
 const args = process.argv.slice(2);
+
 if (args.length !== 2) {
   console.error('Usage: node app.js <source> <destination>');
 } else {
@@ -29,6 +31,7 @@ function moveFile(source, destination) {
       );
     } else {
       const directory = path.dirname(resolvedDestination);
+
       if (!fs.existsSync(directory)) {
         throw new Error('Destination directory does not exist');
       }
